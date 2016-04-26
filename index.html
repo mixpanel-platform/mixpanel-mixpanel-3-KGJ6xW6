@@ -9,12 +9,12 @@
   	<script id='query'>
 		function getStartDate(from_date) {
 			var parts = from_date.split('-');
-			return new Date.UTC(parts[0], Number(parts[1] - 1), parts[2]);//.valueOf();
+			return new Date.UTC(parts[0], Number(parts[1] - 1), parts[2]).valueOf();
 		}
 
 		function getEndDate(to_date) {
 			var parts = to_date.split('-');
-			return new Date.UTC(parts[0], Number(parts[1] - 1), parts[2]);//.valueOf();
+			return new Date.UTC(parts[0], Number(parts[1] - 1), parts[2]).valueOf();
 		}
 
 		function getBeginningOfBucket(epoch) {
