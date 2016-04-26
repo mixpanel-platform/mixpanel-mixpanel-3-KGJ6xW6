@@ -20,7 +20,7 @@
 		function getBeginningOfBucket(epoch) {
 		    var start = getStartDate(params.from_date)
 		    var bucketNum = Math.floor((epoch - start) / params.retention_interval);
-		    return new Date.UTC(start + (bucketNum * params.retention_interval));//.valueOf();
+		    return new Date(start + (bucketNum * params.retention_interval) + 60*60*7*1000).valueOf();
 		}
 
 		function toDate(epoch) {
