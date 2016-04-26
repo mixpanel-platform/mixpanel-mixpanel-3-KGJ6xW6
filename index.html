@@ -55,7 +55,7 @@
 		          	  	  state.retention[params.retention_buckets[i]] = 2;
 		          	  }
 		          	  else if (!state.retention[params.retention_buckets[i]]) {
-		          	  	  state.retention[params.retention_buckets[i]] = 1;
+		          	  	  state.retention[params.retention_buckets[i]] = 0;
 		          	  }
 		          }
 		      }
@@ -77,7 +77,7 @@
 		            	res[index].converted++;
 		            	res[index].total++;
 		            }
-		            else if (items[j].value.retention[index] === 0) {
+		            else if (items[j].value.retention[index] == 0) {
 		            	res[index].total++;
 		            }
 		        }
