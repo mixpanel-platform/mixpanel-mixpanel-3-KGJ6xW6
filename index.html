@@ -9,22 +9,22 @@
   	<script id='query'>
 		function getStartDate(from_date) {
 			var parts = from_date.split('-');
-			return new Date(parts[0], Number(parts[1] - 1), parts[2]).valueOf() + 60*new Date().getTimezoneOffset()*1000;
+			return new Date(parts[0], Number(parts[1] - 1), parts[2]).valueOf() - 60*new Date().getTimezoneOffset()*1000;
 		}
 
 		function getEndDate(to_date) {
 			var parts = to_date.split('-');
-			return new Date(parts[0], Number(parts[1] - 1), parts[2]).valueOf() + 86400000 + 60*new Date().getTimezoneOffset()*1000;
+			return new Date(parts[0], Number(parts[1] - 1), parts[2]).valueOf() + 86400000 - 60*new Date().getTimezoneOffset()*1000;
 		}
 
 		function getBeginningOfBucket(epoch) {
 		    var start = getStartDate(params.from_date)
 		    var bucketNum = Math.floor((epoch - start) / params.retention_interval);
-		    return new Date(start + (bucketNum * params.retention_interval)).valueOf() + 60*new Date().getTimezoneOffset()*1000;
+		    return new Date(start + (bucketNum * params.retention_interval)).valueOf() - 60*new Date().getTimezoneOffset()*1000;
 		}
 
 		function toDate(epoch) {
-			var d = new Date(epoch + 60*new Date().getTimezoneOffset()*1000);
+			var d = new Date(epoch - 60*new Date().getTimezoneOffset()*1000);
 			return d.getFullYear() + '-' + (d.getMonth() < 9 ? ('0' + (d.getMonth() + 1)) : (d.getMonth() + 1)) + '-' + (d.getDate() < 10 ? ('0' + d.getDate()) : d.getDate());
 		}
 
