@@ -9,18 +9,18 @@
   	<script id='query'>
 		function getStartDate(from_date) {
 			var parts = from_date.split('-');
-			return new Date(Date.UTC(parts[0], Number(parts[1] - 1), parts[2])).valueOf();
+			return new Date.UTC(parts[0], Number(parts[1] - 1), parts[2]).valueOf();
 		}
 
 		function getEndDate(to_date) {
 			var parts = to_date.split('-');
-			return new Date(Date.UTC(parts[0], Number(parts[1] - 1), parts[2])).valueOf() + 86400000;
+			return new Date.UTC(parts[0], Number(parts[1] - 1), parts[2]).valueOf();
 		}
 
 		function getBeginningOfBucket(epoch) {
 		    var start = getStartDate(params.from_date)
 		    var bucketNum = Math.floor((epoch - start) / params.retention_interval);
-		    return new Date(Date.UTC(start + (bucketNum * params.retention_interval))).valueOf();
+		    return new Date.UTC(start + (bucketNum * params.retention_interval)).valueOf();
 		}
 
 		function toDate(epoch) {
