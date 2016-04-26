@@ -19,12 +19,12 @@
 
 		function getBeginningOfBucket(epoch) {
 		    var start = getStartDate(params.from_date)
-		    var bucketNum = Math.floor((epoch - start) / params.retention_interval);
-		    return new Date(start + (bucketNum * params.retention_interval)).valueOf() - 60*new Date().getTimezoneOffset()*1000;
+		    var bucketNum = (epoch - start) / params.retention_interval;
+		    return new Date(start + (bucketNum * params.retention_interval)).valueOf();
 		}
 
 		function toDate(epoch) {
-			var d = new Date(epoch - 60*new Date().getTimezoneOffset()*1000);
+			var d = new Date(epoch);
 			return d.getFullYear() + '-' + (d.getMonth() < 9 ? ('0' + (d.getMonth() + 1)) : (d.getMonth() + 1)) + '-' + (d.getDate() < 10 ? ('0' + d.getDate()) : d.getDate());
 		}
 
