@@ -22,7 +22,7 @@
        'start_events': [{ event: "New user" } ],
        'retention_events': [{ event: "Authorized" } ],
        'retention_interval': ONE_DAY,
-       'retention_buckets': [0,1,7,14,30]
+       'retention_buckets': [0,1,7,14,30,90]
    }
 
   function getTimezoneOffset() {
@@ -243,7 +243,7 @@
       <div style="float: left">Retention Interval:</div>
       <div id="interval" style="float: left;"></div>
       <div style="float: left">Buckets:</div>
-      <input id="buckets" type="text" style="float: left;" value="0,1,7,14,30">
+      <input id="buckets" type="text" style="float: left;" value="0,1,7,14,30,90">
       <div style="clear: both;"></div>
     </div>
     <div id="chart"></div>
